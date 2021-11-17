@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+//Tutorial//
+// Indique a quantidade de números a serem ordenados, depois serão pedidos os valores//
+
+void Org( int x[], int e )
+
+{
+   register int i,p;
+   register int aux;
+   
+   for(i=1;i<e;i++)
+   {
+      for(p=e-1;p>=i;p--)
+      {
+         if(x[p-1] > x[p])
+         {
+            aux = x[p-1];
+            x[p-1] = x[p];
+            x[p] = aux;
+         }
+      }
+   }
+   return;
+}
+
+int main()
+
+{
+    int it;
+    int valor;
+    int vetor[valor];
+    int contador;
+
+    printf ("Quantos números serão ordenados?\n");
+        scanf("%d", &valor);
+    printf ("Insira os números:\n");
+
+    for (it = 0; it < valor; it++)
+    {
+       scanf("%d", &vetor[it] );
+    }
+
+    Org(vetor, valor);
+
+    printf("Números em Ordem Crescente:");
+    for(contador = 0; contador < valor; contador++)
+    
+    {
+        printf(" %d ", vetor[contador] );
+    }
+
+    return 0;
+    
+}
